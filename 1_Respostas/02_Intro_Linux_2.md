@@ -5,13 +5,13 @@ Para todas as questões, escreva os comandos correspondentes no terminal.
 	cat Ola_mundo.txt
 
 2. Apresente o nome de todos os arquivos e pastas na pasta 'root'.
-	ls /
+	ls -la /
 
 3. Apresente o tipo de todos os arquivos e pastas na pasta 'root'.
-	
+	file /*
 
 4. Apresente somente as pastas dentro da pasta 'root'.
-	 
+	 ls -d
 
 5. Descubra em que dia da semana caiu o seu aniversário nos últimos dez anos.
 	seq 09 19 | xargs -I {} date -d "09/30/20{}" +%A

@@ -16,8 +16,11 @@ Não limite o script a 3 meses. Ele deve funcionar para vários casos, como por 
 ./cals.sh 1 2020
 ./cals.sh 1 2019 2 2020 3 2021 1 2010
 ```
+Arquivo: IntroLinux3_2.sh
 
 3. Utilizando a lógica do script anterior, descubra em que dia da semana caiu o seu aniversário nos últimos dez anos.
+
+Arquivo: IntroLinux3_3.sh
 
 4. Crie um arquivo _sites.txt_ com o seguinte conteúdo:
 

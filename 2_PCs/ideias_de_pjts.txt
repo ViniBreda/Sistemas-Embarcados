@@ -1,0 +1,1 @@
+1. Sistema de Reconhecimento de Placa de Carro para abertura do portão da garagem com envio de mensagem ao porteiro/dono do carro ao detectar o carro entrando ou saindo

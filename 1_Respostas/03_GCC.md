@@ -137,6 +137,8 @@ $ Argumentos: Eu Mesmo e Minha Pessoa
 8. Crie uma função que retorna a quantidade de caracteres em uma string, usando o seguinte protótipo:
 `int Num_Caracs(char *string);` Salve-a em um arquivo separado chamado 'num_caracs.c'. Salve o protótipo em um arquivo chamado 'num_caracs.h'. Compile 'num_caracs.c' para gerar o objeto 'num_caracs.o'.
 
+**Arquivo: num_caracs.o**
+
 9. Re-utilize o objeto criado na questão 8 para criar um código que imprime cada argumento de entrada e a quantidade de caracteres de cada um desses argumentos. Por exemplo, considerando que o código criado recebeu o nome de 'ola_num_caracs_1': 
 
 ```bash

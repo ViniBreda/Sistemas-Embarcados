@@ -1,8 +1,8 @@
-Para todas as questões, compile-as com o gcc e execute-as via terminal.
+Para todas as questões, compile-as com o 03_GCC e execute-as via terminal.
 
 1. Crie um "Olá mundo!" em C.
 
-**Arquivo: GCC_1.c**
+**Arquivo: 03_GCC_1.c**
 
 2. Crie um código em C que pergunta ao usuário o seu nome, e imprime no terminal "Ola " e o nome do usuário. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_1':
 
@@ -12,7 +12,7 @@ $ Digite o seu nome: Eu
 $ Ola Eu
 ```
 
-**Arquivo: GCC_2.c**
+**Arquivo: 03_GCC_2.c**
 
 3. Apresente os comportamentos do código anterior nos seguintes casos:
 
@@ -68,7 +68,7 @@ $ ./ola_usuario_2 Eu
 $ Ola Eu
 ```
 
-**Arquivo: GCC_4.c**
+**Arquivo: 03_GCC_4.c**
 
 5. Apresente os comportamentos do código anterior nos seguintes casos:
 
@@ -123,7 +123,7 @@ $ Ola Eu
 $ Numero de entradas = 2
 ```
 
-**Arquivo: GCC_6.c**
+**Arquivo: 03_GCC_6.c**
 
 7. Crie um código em C que imprime todos os argumentos de entrada fornecidos pelo usuário. Por exemplo, considerando que o código criado recebeu o nome de 'ola_argumentos':
 
@@ -132,12 +132,12 @@ $ ./ola_argumentos Eu Mesmo e Minha Pessoa
 $ Argumentos: Eu Mesmo e Minha Pessoa
 ```
 
-**Arquivo: GCC_7.c**
+**Arquivo: 03_GCC_7.c**
 
 8. Crie uma função que retorna a quantidade de caracteres em uma string, usando o seguinte protótipo:
 `int Num_Caracs(char *string);` Salve-a em um arquivo separado chamado 'num_caracs.c'. Salve o protótipo em um arquivo chamado 'num_caracs.h'. Compile 'num_caracs.c' para gerar o objeto 'num_caracs.o'.
 
-9. Re-utilize o objeto criado na questão 8 para criar um código que imprime cada argumento de entrada e a quantidade de caracteres de cada um desses argumentos. Por exemplo, considerando que o código criado recebeu o nome de 'ola_num_caracs_1':
+9. Re-utilize o objeto criado na questão 8 para criar um código que imprime cada argumento de entrada e a quantidade de caracteres de cada um desses argumentos. Por exemplo, considerando que o código criado recebeu o nome de 'ola_num_caracs_1': 
 
 ```bash
 $ ./ola_num_caracs_1 Eu Mesmo

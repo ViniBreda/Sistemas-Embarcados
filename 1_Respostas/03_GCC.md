@@ -148,6 +148,8 @@ $ Argumento: Eu / Numero de caracteres: 2
 $ Argumento: Mesmo / Numero de caracteres: 5
 ```
 
+**Arquivo: ola_num_caracs_1**
+
 10. Crie um Makefile para a questão anterior.
 
 **Arquivo: Makefile**
@@ -159,4 +161,8 @@ $ ./ola_num_caracs_2 Eu Mesmo
 $ Total de caracteres de entrada: 25
 ```
 
+**Arquivo: ola_num_caracs_1**
+
 12. Crie um Makefile para a questão anterior.
+
+**Arquivo: makefile**

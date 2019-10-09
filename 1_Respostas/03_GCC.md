@@ -62,12 +62,10 @@ $ ./ola_usuario_1 < ola.txt
 **Resultado: Digite o seu nome: Olá, Ola!**
 
 4. Crie um código em C que recebe o nome do usuário como um argumento de entrada (usando as variáveis argc e *argv[]), e imprime no terminal "Ola " e o nome do usuário. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_2':
-
 ```bash
 $ ./ola_usuario_2 Eu
 $ Ola Eu
 ```
-
 **Arquivo: 03_GCC_4.c**
 
 5. Apresente os comportamentos do código anterior nos seguintes casos:

@@ -2,15 +2,19 @@
 #include <tesseract/baseapi.h>
 #include <leptonica/allheaders.h>
 //#include </usr/include/alpr.h>
+#include </usr/include/wiringPi.h>
+#include <unistd.h>
 
 #include <iostream>
 #include <array>
 
+#define PIR 0
 using namespace cv;
 //using namespace alpr;
 
 int main(int argc, char** argv) {
-    
+    wiringPiSetup();
+    pinMode(PIR, INPUT);
 //    Alpr openalpr("br", "/usr/share/openalpr/config/openalpr.defaults.conf");
 //    
 //    openalpr.setTopN(10);
@@ -27,12 +31,18 @@ int main(int argc, char** argv) {
         std::cerr << "No camera found!" << std::endl;
         return -1;
     }
+    int i = 0;
     namedWindow("Webcam", WINDOW_AUTOSIZE);
     for(;;){
         Mat frame; // cria uma matriz de frames
         cap >> frame; // passa as capturas de imagem da camera, feitas em VideoCapture, para a matriz frame
         imshow("Webcam", frame); // mostra os frames capturados pelo VideoCapture
-        imwrite("./WebCamImage.png", frame);
+        if(digitalRead(PIR)){
+            imwrite("./WebCamImage.png", frame);
+            i++;
+            std::cout << "Presence Detected " << i << std::endl;
+            sleep(2);
+        }
         if(waitKey(30) >= 0) break;
         
 //        AlprResults results = openalpr.recognize("./WebCamImage.png");

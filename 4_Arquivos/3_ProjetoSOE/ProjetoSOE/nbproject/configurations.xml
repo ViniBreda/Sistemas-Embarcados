@@ -51,16 +51,19 @@
             <pElem>/opt/opencv-4.1.0/include/opencv4/opencv2</pElem>
             <pElem>/usr/include/leptonica</pElem>
             <pElem>/usr/include/tesseract</pElem>
+            <pElem>/usr/include</pElem>
           </linkerAddLib>
           <linkerDynSerch>
             <pElem>/opt/opencv-4.1.0/include/opencv4/opencv2</pElem>
             <pElem>/usr/include/leptonica</pElem>
             <pElem>/usr/include/tesseract</pElem>
+            <pElem>/usr/include</pElem>
           </linkerDynSerch>
           <linkerLibItems>
             <linkerOptionItem>`pkg-config --cflags --libs opencv`</linkerOptionItem>
             <linkerOptionItem>`pkg-config --libs tesseract`</linkerOptionItem>
             <linkerOptionItem>`pkg-config --libs lept`</linkerOptionItem>
+            <linkerLibFileItem>/usr/lib/libwiringPi.so</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>

@@ -52,11 +52,13 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/opt/opencv-4.1.0/include/opencv4/opencv2 -L/usr/include/leptonica -L/usr/include/tesseract -Wl,-rpath,/opt/opencv-4.1.0/include/opencv4/opencv2 -Wl,-rpath,/usr/include/leptonica -Wl,-rpath,/usr/include/tesseract `pkg-config --cflags --libs opencv` `pkg-config --libs tesseract` `pkg-config --libs lept`  
+LDLIBSOPTIONS=-L/opt/opencv-4.1.0/include/opencv4/opencv2 -L/usr/include/leptonica -L/usr/include/tesseract -L/usr/include -Wl,-rpath,/opt/opencv-4.1.0/include/opencv4/opencv2 -Wl,-rpath,/usr/include/leptonica -Wl,-rpath,/usr/include/tesseract -Wl,-rpath,/usr/include `pkg-config --cflags --libs opencv` `pkg-config --libs tesseract` `pkg-config --libs lept` /usr/lib/libwiringPi.so  
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/projetosoe
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/projetosoe: /usr/lib/libwiringPi.so
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/projetosoe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}

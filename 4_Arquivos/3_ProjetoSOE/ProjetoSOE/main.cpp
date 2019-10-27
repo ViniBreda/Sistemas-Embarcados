@@ -11,11 +11,10 @@
 #include <stdexcept>
 #include <string>
 
-#define PIR 0
+#define PIR 0 // definindo porta para leitura do sensor PIR (sensor de movimento)
 using namespace cv;
-//using namespace alpr;
 
-std::string exec(const char* cmd) {
+std::string exec(const char* cmd) { // leitura da saída do terminal de determinada função
     std::array<char, 128> buffer;
     std::string result;
     std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
@@ -30,18 +29,8 @@ std::string exec(const char* cmd) {
 
 int main(int argc, char** argv) {
     system("clear");
-    wiringPiSetup();
-    pinMode(PIR, INPUT);
-//    Alpr openalpr("br", "/usr/share/openalpr/config/openalpr.defaults.conf");
-//    
-//    openalpr.setTopN(10);
-//    openalpr.setDefaultRegion("br");
-//    if (!openalpr.isLoaded())
-//    {
-//        std::cerr << "Error loading OpenALPR" << std::endl;
-//        return 1;
-//    }
-//        
+    wiringPiSetup(); // inicio do setup de pinos da rasp FALTA O OUTPUT DO CONTROLE DO PORTÃO DA GARAGEM
+    pinMode(PIR, INPUT);   // setando o pino do PIR como entrada digital
     VideoCapture cap(0); // abre a camera padrão do sistema
     if(!cap.isOpened()) // se não houver câmera, acusa erro
     {
@@ -57,14 +46,12 @@ int main(int argc, char** argv) {
         cap >> frame; // passa as capturas de imagem da camera, feitas em VideoCapture, para a matriz frame
         imshow("Webcam", frame); // mostra os frames capturados pelo VideoCapture
         if(digitalRead(PIR)){
-            imwrite("./WebCamImage.png", frame);
-            i++;
+            imwrite("./WebCamImage.png", frame); // salva o frame atual no arquivo WebCamImage.png para ser lido pelo openalpr
+            i++; // conta a quantidade de leituras feitas
             system("clear");
             std::cout << "Presence Detected " << i << std::endl;
-            //sleep(2);
-            //system("alpr -c br ./WebCamImage.png");
-            plate = exec("alpr -c br -p @@@#### -n 2 ./WebCamImage.png");
-            if(strlen(plate.c_str()) > 25){
+            plate = exec("alpr -c br -p @@@#### -n 2 ./WebCamImage.png"); // salva a saída do comando de terminal do OpenALPR em uma variável
+            if(strlen(plate.c_str()) > 25){ // pega as letras e numeros da placa caso alguma seja reconhecida
                 std::string plateL(plate, 24, 3);
                 plateL[3] = '\0';
                 std::string plateN(plate, 27, 4);
@@ -87,20 +74,6 @@ int main(int argc, char** argv) {
         }
         if(waitKey(30) >= 0) break;
                 
-//        AlprResults results = openalpr.recognize("./WebCamImage.png");
-//    
-//        for (int i = 0; i < results.plates.size(); i++)
-//        {
-//            AlprPlateResult plate = results.plates[i];
-//            std::cout << "plate" << i << ": " << plate.topNPlates.size() << " results" << std::endl;
-//
-//            for (int k = 0; k < plate.topNPlates.size(); k++)
-//            {
-//                AlprPlate candidate = plate.topNPlates[k];
-//                std::cout << "    - " << candidate.characters << "\t confidence: " << candidate.overall_confidence;
-//                std::cout << "\t pattern_match: " << candidate.matches_template << std::endl;
-//            }
-//        }  
     }
     system("clear");
 //    int j = 0;

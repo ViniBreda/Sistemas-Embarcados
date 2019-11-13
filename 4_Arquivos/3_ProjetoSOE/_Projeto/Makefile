@@ -2,7 +2,7 @@ CC := g++
 
 CFLAGS := -std=c++11 -Wall
 
-LIBFLAGS := -lpython2.7 -I/usr/include/python2.7 -lcrypto++ -
+LIBFLAGS := -lpython2.7 -I/usr/include/python2.7 -lcrypto++
 
 SRCFILES := $(wildcard src/*.cpp)
 

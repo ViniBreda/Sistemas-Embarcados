@@ -2,7 +2,16 @@
 Função onde estão as funções relacionadas ao Google Sheet.
 */
 
-#include "../inc/sheet.hpp"
+#include <iostream>
+#include <array>
+#include <stdlib.h>
+#include <cstdio>
+#include <memory>
+#include <stdexcept>
+#include <string>
+#include <vector>
+#include <Python.h>
+#include <algorithm>
 
 std::vector<std::string> exec_int(const char* cmd) { // leitura da saída do terminal de determinada função
     // std::array<char, 128> buffer;
@@ -30,4 +39,10 @@ std::vector<std::string> get_sheet(std::string sheet_id, std::string range) {
     // TODO: mudar os caminhos para os caminhos relativos e absolutos
     a = exec_int(". /home/guilherme/faculdade/so_embarcados/Sistemas-Embarcados/env/bin/activate && python python/sheet.py");
     return a;
+}
+
+int main(int argc, char const *argv[])
+{
+    
+    return 0;
 }

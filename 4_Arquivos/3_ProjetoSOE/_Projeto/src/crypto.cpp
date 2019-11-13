@@ -2,10 +2,8 @@
 Arquivo onde estão as funções de criptografia do código.
 */
 
-#include "crypto++/cryptlib.h"
-#include "crypto++/sha.h"
-#include "crypto++/hex.h"
-#include <iostream>
+#include "../inc/crypto.hpp"
+
 using namespace std;
 
 string SHA256(string data)
@@ -18,7 +16,7 @@ string SHA256(string data)
     string output;
     CryptoPP::HexEncoder encoder;
     encoder.Attach( new CryptoPP::StringSink( output ) );
-    encoder.Put( abDigest, sizeof(abDigest) );
+    encoder.Put( abDigest, sizeof(abDigest));
     encoder.MessageEnd();
     
     return output;

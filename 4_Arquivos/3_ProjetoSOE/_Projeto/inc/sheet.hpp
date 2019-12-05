@@ -14,5 +14,5 @@
 
 std::vector<std::string> exec_int(const char* cmd);
 std::vector<std::string> get_sheet(std::string sheet_id, std::string range);
-
+bool compare_sheet_plate(std::vector<std::string> plates, std::string plate);
 #endif

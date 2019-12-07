@@ -1,18 +1,7 @@
 /*
 Arquivo main.
 */
-#include <opencv2/opencv.hpp>
-#include <tesseract/baseapi.h>
-#include <leptonica/allheaders.h>
-#include </usr/include/wiringPi.h>
-#include <unistd.h>
-#include <iostream>
-#include <array>
-#include <stdlib.h>
-#include <cstdio>
-#include <memory>
-#include <stdexcept>
-#include <string>
+
 #include "../inc/crypto.hpp"
 #include "../inc/sheet.hpp"
 #include "../inc/rasp.hpp"

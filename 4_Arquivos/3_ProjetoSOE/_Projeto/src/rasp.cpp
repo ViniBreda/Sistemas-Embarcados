@@ -44,8 +44,8 @@ bool capture_img(Mat frame)
             plateL2[3] = '\0';
             std::string plateN2(plate, 80, 4);
             plateN2[4] = '\0';
-            std::cout << plate << std::endl;
-            std::cout << plate << std::endl;
+            std::cout << plate1 << std::endl;
+            std::cout << plate2 << std::endl;
 			plate2 = plateL + plateN;
         }
     }

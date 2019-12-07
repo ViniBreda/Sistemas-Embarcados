@@ -13,12 +13,14 @@
 #include <memory>
 #include <stdexcept>
 #include <string>
+#include "../inc/sheet.hpp"
 
 
 #define PIR 0 // definindo porta para leitura do sensor PIR (sensor de movimento)
+#define CTRL 1 // definindo porta para controle do portão
 
 std::string exec(const char* cmd);
-void capture_img();
+bool capture_img(cv::Mat frame);
 
 
 #endif

@@ -5,9 +5,9 @@ Função onde estão as funções relacionadas ao Google Sheet.
 #include "../inc/sheet.hpp"
 
 std::vector<std::string> exec_int(const char* cmd) { // leitura da saída do terminal de determinada função
-    std::array<char, 128> buffer;
+    //std::array<char, 128> buffer;
     std::vector<std::string>result;
-    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
+    /*std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
     if (!pipe) {
         throw std::runtime_error("popen() failed!");
     }
@@ -18,10 +18,15 @@ std::vector<std::string> exec_int(const char* cmd) { // leitura da saída do ter
         }
         std::replace(tmp.begin(), tmp.end(), '\n', '\0');
         result.push_back(tmp);
-    }
-    // result.push_back("PAS1234");
-    // result.push_back("ABC3214");
-    // result.push_back("CBA6547");
+    }*/
+    result.push_back("EUU8835");
+    result.push_back("PAD1511");
+    result.push_back("PBD5768");
+    result.push_back("PBB0913");
+    result.push_back("OOA0078");
+    result.push_back("JIJ1322");
+    result.push_back("AZD7894");
+
     return result;
 }
 

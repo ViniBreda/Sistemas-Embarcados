@@ -19,12 +19,13 @@ std::string exec(const char *cmd)
     return result;
 }
 
-void capture_img()
+bool capture_img(Mat frame)
 {
-    imwrite("./WebCamImage.png", frame); // salva o frame atual no arquivo WebCamImage.png para ser lido pelo openalpr
-    i++;                                 // conta a quantidade de leituras feitas
+	std::string plate1, plate2;
+	std::string plate;
+	imwrite("./WebCamImage.png", frame); // salva o frame atual no arquivo WebCamImage.png para ser lido pelo openalpr
     system("clear");
-    std::cout << "Presence Detected " << i << std::endl;
+    std::cout << "Presence Detected " << std::endl;
     plate = exec("alpr -c br -p @@@#### -n 2 ./WebCamImage.png"); // salva a saída do comando de terminal do OpenALPR em uma variável
     if (strlen(plate.c_str()) > 25)
     { // pega as letras e numeros da placa caso alguma seja reconhecida
@@ -35,6 +36,7 @@ void capture_img()
         std::cout << plate << std::endl;
         std::string plateR(plate, 8, 1);
         plateR[1] = '\0';
+        plate1 = plateL + plateN;
         //std::cout << plateR << std::endl;
         if (plateR != "1")
         { // se houverem duas possibilidades de placa, salva a segunda em outra variável
@@ -42,10 +44,22 @@ void capture_img()
             plateL2[3] = '\0';
             std::string plateN2(plate, 80, 4);
             plateN2[4] = '\0';
-            std::cout << plateL << ' ' << plateN << std::endl;
-            std::cout << plateL2 << ' ' << plateN2 << std::endl;
+            std::cout << plate << std::endl;
+            std::cout << plate << std::endl;
+			plate2 = plateL + plateN;
         }
     }
-    else // se não reconhece alguma placa, mostra somente o output do comando de terminal
+    else{ // se não reconhece alguma placa, mostra somente o output do comando de terminal
         std::cout << plate << std::endl;
+	}
+	std::vector<std::string>plates = get_sheet("01930123019230192301923091", "A2:A5");
+	if(compare_sheet_plate(plates, plate1)){
+		std::cout << compare_sheet_plate(plates, plate1) << std::endl;
+		return 1;
+	}
+	if(compare_sheet_plate(plates, plate2)){
+		std::cout << compare_sheet_plate(plates, plate2) << std::endl;
+		return 1;
+	}
+	return 0;
 }

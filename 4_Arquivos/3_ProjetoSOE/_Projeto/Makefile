@@ -1,16 +1,16 @@
 CC := g++
 
-CFLAGS := -std=c++11 -Wall
+CFLAGS := -std=c++14 -Wall
 
-LIBFLAGS := -lpython2.7 -I/usr/include/python2.7 -lcrypto++
+LIBFLAGS := -lpython2.7 -lopencv_core -lopencv_imgproc -lopencv_highgui -lwiringPi -I/usr/include/python2.7 -lcrypto++ -I/opt/opencv-4.1.0/include/opencv4/opencv2 -I/opt/opencv-4.1.0/include/opencv4/opencv2/core `pkg-config opencv --cflags --libs` -L/opt/opencv-4.1.0/include/opencv4/opencv2 -L/usr/include
 
 SRCFILES := $(wildcard src/*.cpp)
 
 all: $(SRCFILES:src/%.cpp=obj/%.o)
-	$(CC)  obj/*.o $(CFLAGS) $(LIBFLAGS) -o bin/saida
+	$(CC) obj/*.o $(CFLAGS) $(LIBFLAGS) -o bin/saida
 
 obj/%.o : src/%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -O0 $(CFLAGS) $(LIBFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:

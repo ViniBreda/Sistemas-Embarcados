@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
             else // se não reconhece alguma placa, mostra somente o output do comando de terminal
                 std::cout << plate << std::endl;
         }
-        if(waitKey(30) >= 0) break; // fecha o programa se 
+        if(waitKey(30) >= 0) break; // fecha o programa se o botão for pressionado
                 
     }
     system("clear");

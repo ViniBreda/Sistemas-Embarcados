@@ -43,7 +43,7 @@
             <pElem>/usr/include/leptonica</pElem>
             <pElem>/usr/include/tesseract</pElem>
           </incDir>
-          <commandLine>-O0</commandLine>
+          <commandLine>-O0 -lcrypto++</commandLine>
         </ccTool>
         <linkerTool>
           <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/projetosoe</output>

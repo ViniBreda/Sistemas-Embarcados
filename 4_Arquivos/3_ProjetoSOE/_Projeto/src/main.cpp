@@ -26,12 +26,17 @@ int main(int argc, char** argv) {
         // imshow("Webcam", frame); // mostra os frames capturados pelo VideoCapture
         if(digitalRead(PIR)){ // caso haja leitura no sensor de presença
             if(capture_img(frame)){ // inicia o processo de leitura e reconhecimento de placa
+                digitalWrite(GLED, HIGH); // indica quando a abertura do portão é iniciada
 				digitalWrite(CTRL, HIGH); // caso encontre uma placa que está no banco de placas permitidas ativa o controle
 				usleep(500);
 			}
         }
         if(waitKey(30) >= 0) break; // fecha o programa se uma tecla for pressionada
 		digitalWrite(CTRL, LOW); // desliga o controle
+        digitalWrite(BLED, LOW); // indica reconhecimento da placa
+        digitalWrite(RLED, LOW); // indica reconhecimento da placa
+        digitalWrite(GLED, LOW); // indica reconhecimento da placa
+        
                 
     }
     system("clear");

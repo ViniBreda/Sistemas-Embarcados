@@ -55,11 +55,13 @@ bool capture_img(Mat frame)
 	std::vector<std::string>plates = get_sheet("01930123019230192301923091", "A2:A5");
 	if(compare_sheet_plate(plates, plate1)){
 		std::cout << compare_sheet_plate(plates, plate1) << std::endl;
+        digitalWrite(BLED, HIGH); // indica reconhecimento da placa
 		return 1;
 	}
 	if(compare_sheet_plate(plates, plate2)){
 		std::cout << compare_sheet_plate(plates, plate2) << std::endl;
 		return 1;
 	}
+    digitalWrite(RLED, HIGH); // indica que nenhuma placa foi reconhecida
 	return 0;
 }
